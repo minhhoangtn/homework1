@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:homework_1/item_data.dart';
 
 class CustomItem extends StatelessWidget {
-  final String title;
-  final int exerciseCount;
-  final int duration;
-  final String imageUrl;
-  final Color customColor;
+  final ItemData data;
 
   const CustomItem({
     super.key,
-    required this.title,
-    required this.exerciseCount,
-    required this.duration,
-    required this.imageUrl,
-    required this.customColor,
+    required this.data,
   });
 
   @override
@@ -29,7 +22,7 @@ class CustomItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    data.title,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -37,7 +30,7 @@ class CustomItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    '$exerciseCount Exercises',
+                    '${data.exerciseCount} Exercises',
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -46,7 +39,7 @@ class CustomItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    '$duration Minutes',
+                    '${data.duration} Minutes',
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -55,7 +48,7 @@ class CustomItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '0/$exerciseCount',
+                    '0/${data.exerciseCount}',
                     style: const TextStyle(
                       fontSize: 10,
                     ),
@@ -64,7 +57,7 @@ class CustomItem extends StatelessWidget {
                     height: 10,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: customColor,
+                      color: data.customColor,
                       borderRadius: BorderRadius.circular(40),
                     ),
                   )
@@ -77,7 +70,7 @@ class CustomItem extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    imageUrl,
+                    data.imageUrl,
                     fit: BoxFit.fill,
                     height: 100,
                   ),
